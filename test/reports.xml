@@ -1,0 +1,26 @@
+<openerp>
+    <data>
+        <report
+            id="report_view"
+            model="student.data"
+            name="test.report_test_view"
+            string="Report"
+            file="test.report_view"
+            report_type="qweb-pdf"/>
+        
+        <template id="report_test_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <ul>
+                                <li><span t-field="doc.name"/></li>
+                                <li><apan t-field="doc.rollno"/></li>  
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

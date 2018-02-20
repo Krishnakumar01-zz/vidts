@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<openerp>
+	<data>
+		<record id="student_action_window" model="ir.actions.act_window">
+			<field name="name">Data</field>
+			<field name="res_model">student.data</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="help" type="xml">
+				<p>Create some record</p>
+			</field>
+		</record>
+		<record id="student_data_form" model="ir.ui.view">
+			<field name="name">student.form</field>
+			<field name="model">student.data</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<field name="name"/>
+						<field name="rollno"/>
+						<field name="gender" widget="radio"/>
+						<field name="mobile"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		<record id="student_data_tree" model="ir.ui.view">
+			<field name="name">student.tree</field>
+			<field name="model">student.data</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="rollno"/>
+					<field name="mobile"/>
+				</tree>
+			</field>
+		</record>
+		<record id="course_action_window" model="ir.actions.act_window">
+			<field name="name">Data</field>
+			<field name="res_model">courses.data</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="help" type="html">
+				<p>Create some record</p>
+			</field>
+		</record>
+		<record id="course_data_form" model="ir.ui.view">
+			<field name="name">courses.form</field>
+			<field name="model">courses.data</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<field name="name"/>
+						<field name="startdate"/>
+						<field name="enddate"/>
+						<field name="duration"/>
+					</group>
+				</form>
+			</field>
+		</record>
+		<record id="student_data_tree" model="ir.ui.view">
+			<field name="name">courses.tree</field>
+			<field name="model">courses.data</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="startdate"/>
+					<field name="enddate"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<menuitem id="main_student_menu" name="Student data" />
+		<menuitem id="student_menu" name="Student Details" parent="main_student_menu" />
+		<menuitem id="personal_menu" name="Personal details" parent="student_menu" action="student_action_window" />
+		<menuitem id="course_menu" name="Course details" parent="student_menu" action="course_action_window"/>
+	</data>
+</openerp>
